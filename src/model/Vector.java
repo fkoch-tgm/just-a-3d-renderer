@@ -32,6 +32,51 @@ public class Vector {
 	}
 	
 	/**
+	 * @return the x-value
+	 */
+	public int getX() {
+		return tuple[0];
+	}
+	
+	/**
+	 * @return the y-value
+	 */
+	public int getY() {
+		return tuple[1];
+	}
+	
+	/**
+	 * @return the z-value
+	 */
+	public int getZ() {
+		return tuple[2];
+	}
+	
+	/**
+	 * Sets the x-value
+	 * @param x the new x
+	 */
+	public void setX(int x) {
+		tuple[0]=x;
+	}
+	
+	/**
+	 * Sets the y-value
+	 * @param y the new y
+	 */
+	public void sety(int y) {
+		tuple[1]=y;
+	}
+	
+	/**
+	 * Sets the z-value
+	 * @param z the new z
+	 */
+	public void setZ(int z) {
+		tuple[2]=z;
+	}
+	
+	/**
 	 * Adds a Vector to the Vector and returns the result
 	 * @param other the other Vector
 	 * @return the resulting Vector
