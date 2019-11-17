@@ -83,7 +83,7 @@ public class Point {
 	 * @return the result of Vector + Point
 	 */
 	public Point addVectorToPoint(Vector vector) {
-		return null; //TODO 
+		return new Point(this.getX()+vector.getX(),this.getY()+vector.getY(),this.getZ()+vector.getZ());
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class Point {
 	 * @return the result of Point - Vector
 	 */
 	public Point subtractVectorFromPoint(Vector vector) {
-		return null; //TODO
+		return new Point(this.getX()-vector.getX(),this.getY()-vector.getY(),this.getZ()-vector.getZ());
 	}
 	
 	/**
@@ -101,7 +101,7 @@ public class Point {
 	 * @return the result of this Point minus the Point point
 	 */
 	public Vector subtractPointFromPoint(Point point) {
-		return null; //TODO
+		return new Vector(getX()-point.getX(), getY()-point.getY(), getZ()-point.getZ());
 	}
 	
 	/**

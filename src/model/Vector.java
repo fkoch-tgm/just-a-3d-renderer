@@ -82,7 +82,7 @@ public class Vector {
 	 * @return the resulting Vector
 	 */
 	public Vector addVectorToVector(Vector other) {
-		return null; // TODO
+		return new Vector(getX()+other.getX(),getY()+other.getY(),getZ()+other.getZ());
 	}
 	
 	/**
@@ -91,6 +91,6 @@ public class Vector {
 	 * @return the result of this Vector - the other Vector
 	 */
 	public Vector subtractVectorFromVector(Vector other) {
-		return null; //TODO
+		return new Vector(getX()-other.getX(),getY()-other.getY(),getZ()-other.getZ());
 	}
 }
