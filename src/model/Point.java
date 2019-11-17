@@ -65,7 +65,7 @@ public class Point {
 	 * Sets the y-value
 	 * @param y the new y
 	 */
-	public void sety(int y) {
+	public void setY(int y) {
 		tuple[1]=y;
 	}
 	
@@ -78,21 +78,47 @@ public class Point {
 	}
 	
 	/**
-	 * Adds a Vector to a Point and returns the resulting Point
-	 * @param vector a Vector
-	 * @return the result of Vector + Point
+	 * Adds an integer to the current x-value
+	 * @param toX the value to add to x
 	 */
-	public Point addVectorToPoint(Vector vector) {
-		return new Point(this.getX()+vector.getX(),this.getY()+vector.getY(),this.getZ()+vector.getZ());
+	public void addToX(int toX) {
+		setX(getX()+toX);
+	}
+
+	/**
+	 * Adds an integer to the current y-value
+	 * @param toY the value to add to y
+	 */
+	public void addToY(int toY) {
+		setY(getY()+toY);
+	}
+
+	/**
+	 * Adds an integer to the current z-value
+	 * @param toZ the value to add to z
+	 */
+	public void addToZ(int toZ) {
+		setZ(getZ()+toZ);
 	}
 	
 	/**
-	 * Subtracts a Vector from a Point and returns the resulting Point
+	 * Adds a Vector to this Point
 	 * @param vector a Vector
-	 * @return the result of Point - Vector
 	 */
-	public Point subtractVectorFromPoint(Vector vector) {
-		return new Point(this.getX()-vector.getX(),this.getY()-vector.getY(),this.getZ()-vector.getZ());
+	public void addVectorToPoint(Vector vector) {
+		addToX(vector.getX());
+		addToY(vector.getY());
+		addToZ(vector.getZ());
+	}
+	
+	/**
+	 * Subtracts a Vector from this Point
+	 * @param vector a Vector
+	 */
+	public void subtractVectorFromPoint(Vector vector) {
+		addToX(-vector.getX());
+		addToY(-vector.getY());
+		addToZ(-vector.getZ());
 	}
 	
 	/**
@@ -139,5 +165,9 @@ public class Point {
 		return true;
 	}
 	
+	@Override
+	public Point clone() {
+		return new Point(getX(),getY(),getZ());
+	}
 
 }

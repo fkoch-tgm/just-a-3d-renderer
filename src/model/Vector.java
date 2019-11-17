@@ -64,7 +64,7 @@ public class Vector {
 	 * Sets the y-value
 	 * @param y the new y
 	 */
-	public void sety(int y) {
+	public void setY(int y) {
 		tuple[1]=y;
 	}
 	
@@ -77,20 +77,51 @@ public class Vector {
 	}
 	
 	/**
-	 * Adds a Vector to the Vector and returns the result
-	 * @param other the other Vector
-	 * @return the resulting Vector
+	 * Adds an integer to the current x-value
+	 * @param toX the value to add to x
 	 */
-	public Vector addVectorToVector(Vector other) {
-		return new Vector(getX()+other.getX(),getY()+other.getY(),getZ()+other.getZ());
+	public void addToX(int toX) {
+		setX(getX()+toX);
+	}
+
+	/**
+	 * Adds an integer to the current y-value
+	 * @param toY the value to add to y
+	 */
+	public void addToY(int toY) {
+		setY(getY()+toY);
+	}
+
+	/**
+	 * Adds an integer to the current z-value
+	 * @param toZ the value to add to z
+	 */
+	public void addToZ(int toZ) {
+		setZ(getZ()+toZ);
 	}
 	
 	/**
-	 * Subtracts the other Vector from the Vector and returns the result
+	 * Adds a Vector to this Vector
 	 * @param other the other Vector
-	 * @return the result of this Vector - the other Vector
 	 */
-	public Vector subtractVectorFromVector(Vector other) {
-		return new Vector(getX()-other.getX(),getY()-other.getY(),getZ()-other.getZ());
+	public void addVectorToVector(Vector other) {
+			addToX(other.getX());
+			addToY(other.getY());
+			addToZ(other.getZ());
+	}
+	
+	/**
+	 * Subtracts the other Vector from this Vector
+	 * @param other the other Vector
+	 */
+	public void subtractVectorFromVector(Vector other) {
+		addToX(-other.getX());
+		addToY(-other.getY());
+		addToZ(-other.getZ());
+	}
+	
+	@Override
+	public Vector clone() {
+		return new Vector(getX(),getY(),getZ());
 	}
 }
