@@ -120,6 +120,11 @@ public class Vector {
 		addToZ(-other.getZ());
 	}
 	
+	public void rotateXY(double degree) {
+		double rad = Math.toRadians(degree);
+		//TODO 
+	}
+	
 	@Override
 	public Vector clone() {
 		return new Vector(getX(),getY(),getZ());
