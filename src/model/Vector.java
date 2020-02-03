@@ -139,12 +139,32 @@ public class Vector {
 	}
 	
 	/**
-	 * Rotates the Vector by the given angle
+	 * Rotates the Vector by the given angle in the XY-plane
 	 * @param degree the angle in degrees
 	 */
 	public void rotateXY(double degree) {
 		double rad = Math.toRadians(degree);
 		Matrix rotMartix = new Matrix(new double[][] {{Math.cos(rad), -1* Math.sin(rad), 0},{Math.sin(rad), Math.cos(rad), 0},{0,0,1}});
+		this.setMatrix(rotMartix.multiplyWith(this.getMatrix()));
+	}
+	
+	/**
+	 * Rotates the Vector by the given angle in the XZ-plane
+	 * @param degree the angle in degrees
+	 */
+	public void rotateXZ(double degree) {
+		double rad = Math.toRadians(degree);
+		Matrix rotMartix = new Matrix(new double[][] {{Math.cos(rad), 0, -1* Math.sin(rad)},{0,1,0},{-1* Math.sin(rad),0,Math.cos(rad)}});
+		this.setMatrix(rotMartix.multiplyWith(this.getMatrix()));
+	}
+	
+	/**
+	 * Rotates the Vector by the given angle in the YZ-plane
+	 * @param degree the angle in degrees
+	 */
+	public void rotateYZ(double degree) {
+		double rad = Math.toRadians(degree);
+		Matrix rotMartix = new Matrix(new double[][] {{1,0,0},{0,Math.cos(rad),-1*Math.sin(rad)},{0,Math.sin(rad),Math.cos(rad)}});
 		this.setMatrix(rotMartix.multiplyWith(this.getMatrix()));
 	}
 	
