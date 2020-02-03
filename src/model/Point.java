@@ -78,6 +78,17 @@ public class Point {
 	}
 	
 	/**
+	 * Sets this point to the value of another point
+	 * @param point the new point
+	 */
+	public void setPointToPoint(Point point) {
+		setX(point.getX());
+		setY(point.getY());
+		setZ(point.getZ());
+		
+	}
+	
+	/**
 	 * Adds an integer to the current x-value
 	 * @param toX the value to add to x
 	 */
