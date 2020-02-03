@@ -53,6 +53,12 @@ public class Vector {
 	}
 	
 	/**
+	 * @return the matrix-representation of this Vector
+	 */
+	public Matrix getMatrix() {
+		return new Matrix(new double[][] {{getX()},{getY()},{getZ()}});
+	}
+	/**
 	 * Sets the x-value
 	 * @param x the new x
 	 */
@@ -74,6 +80,18 @@ public class Vector {
 	 */
 	public void setZ(int z) {
 		tuple[2]=z;
+	}
+	
+	/**
+	 * Uses a 3x1-Matrix to set the Values of the Vector
+	 * @param m the Matrix
+	 */
+	public void setMatrix(Matrix m) {
+		if(m.getRows() != 3 || m.getColumns() != 1) throw new IllegalArgumentException("Matrix must be of the form 3x1");
+		double[][] arr = m.getArrayForm();
+		setX((int)arr[0][0]);
+		setY((int)arr[1][0]);
+		setZ((int)arr[2][0]);
 	}
 	
 	/**
@@ -120,13 +138,23 @@ public class Vector {
 		addToZ(-other.getZ());
 	}
 	
+	/**
+	 * Rotates the Vector by the given angle
+	 * @param degree the angle in degrees
+	 */
 	public void rotateXY(double degree) {
 		double rad = Math.toRadians(degree);
-		//TODO 
+		Matrix rotMartix = new Matrix(new double[][] {{Math.cos(rad), -1* Math.sin(rad), 0},{Math.sin(rad), Math.cos(rad), 0},{0,0,1}});
+		this.setMatrix(rotMartix.multiplyWith(this.getMatrix()));
 	}
 	
 	@Override
 	public Vector clone() {
 		return new Vector(getX(),getY(),getZ());
+	}
+	
+	@Override
+	public String toString() {
+		return "Vector("+getX()+","+getY()+","+getZ()+")";
 	}
 }

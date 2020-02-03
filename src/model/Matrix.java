@@ -26,12 +26,25 @@ public class Matrix {
 		}
 	}
 	
-	private int getRows() {
+	/**
+	 * @return the number of rows
+	 */
+	public int getRows() {
 		return matrix.length;
 	}
 	
-	private int getColumns() {
+	/**
+	 * @return the number of columns
+	 */
+	public int getColumns() {
 		return matrix[0].length;
+	}
+	
+	/**
+	 * @return an array, that represents the Matrix 
+	 */
+	public double[][] getArrayForm() {
+		return matrix.clone();
 	}
 	
 	/**
