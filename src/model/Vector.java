@@ -168,6 +168,17 @@ public class Vector {
 		this.setMatrix(rotMartix.multiplyWith(this.getMatrix()));
 	}
 	
+	/**
+	 * Scales the Vector based on specific values
+	 * @param scaleX scaling along the x-axis 
+	 * @param scaleY scaling along the y-axis
+	 * @param scaleZ scaling along the z-axis
+	 */
+	public void scale(double scaleX,double scaleY, double scaleZ) {
+		Matrix scaleMatrix = new Matrix(new double[][] {{scaleX,0,0},{0,scaleY,0},{0,0,scaleZ}});
+		this.setMatrix(scaleMatrix.multiplyWith(this.getMatrix()));
+	}
+	
 	@Override
 	public Vector clone() {
 		return new Vector(getX(),getY(),getZ());
