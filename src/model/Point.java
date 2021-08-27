@@ -10,7 +10,7 @@ public class Point {
 	/**
 	 * The x,y and z coordinates
 	 */
-	private int[] tuple;
+	private final int[] tuple;
 	
 	/**
 	 * creates a new Point (0,0,0)
@@ -171,11 +171,10 @@ public class Point {
 		if (getClass() != obj.getClass())
 			return false;
 		Point other = (Point) obj;
-		if (!Arrays.equals(tuple, other.tuple))
-			return false;
-		return true;
+		return Arrays.equals(tuple, other.tuple);
 	}
 	
+	@SuppressWarnings("MethodDoesntCallSuperMethod")
 	@Override
 	public Point clone() {
 		return new Point(getX(),getY(),getZ());
